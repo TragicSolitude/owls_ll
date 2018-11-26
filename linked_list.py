@@ -1,5 +1,9 @@
 from collections.abc import MutableSequence
 
+# Error classes
+class IndexOutOfBoundsException(Exception):
+    pass
+
 class LinkedNode:
     def __init__(self, value, next_node):
         self.__next = next_node
@@ -36,6 +40,16 @@ class LinkedList(MutableSequence):
     
     def insert(self, value):
         self.__head = LinkedNode(value, self.__head)
+
+    def __get(self, index):
+        if index >= self.len:
+            raise IndexOutOfBoundsException()
+        
+        next_node = self.head
+        for _ in 0..index:
+            next_node = next_node.next()
+        
+        return next_node
 
 test_list = LinkedList()
 
