@@ -9,11 +9,21 @@ class LinkedNode:
         self.__next = next_node
         self.__value = value
     
-    def value():
+    @property
+    def value(self):
         return self.__value
     
-    def next():
+    @value.setter
+    def value(self, value):
+        self.__value = value
+    
+    @property
+    def next(self):
         return self.__next
+    
+    @next.setter
+    def next(self, next_node):
+        self.__next = next_node
 
 class LinkedList(MutableSequence):
     def __init__(self):
@@ -24,10 +34,10 @@ class LinkedList(MutableSequence):
         return self.__len
     
     def __iter__(self):
-        next_node = self.head
+        next_node = self.__head
         while next_node is not None:
-            yield next_node.value()
-            next_node = next_node.next()
+            yield next_node.value
+            next_node = next_node.next
     
     def __getitem__(self, index):
         pass
@@ -36,7 +46,11 @@ class LinkedList(MutableSequence):
         pass
 
     def __delitem__(self, index):
-        pass
+        if index == 0:
+            self.head = self.head.next
+        else:
+            prev = self.__get(index)
+            prev
     
     def insert(self, value):
         self.__head = LinkedNode(value, self.__head)
@@ -53,10 +67,10 @@ class LinkedList(MutableSequence):
 
 test_list = LinkedList()
 
-for i in 0..10:
+for i in range(10):
     test_list.insert(i)
 
-print test_list[0]
+print(test_list[0])
 
 for x in test_list:
-    print x
+    print(x)
