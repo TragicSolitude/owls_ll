@@ -46,7 +46,7 @@ class LinkedList(MutableSequence):
             raise IndexOutOfBoundsException()
         
         next_node = self.head
-        for _ in 0..index:
+        for _ in range(index):
             next_node = next_node.next()
         
         return next_node
