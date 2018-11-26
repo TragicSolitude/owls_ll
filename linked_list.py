@@ -40,7 +40,7 @@ class LinkedList(MutableSequence):
             next_node = next_node.next
     
     def __getitem__(self, index):
-        pass
+        return self.__get(index).value
     
     def __setitem__(self, index, value):
         pass
@@ -49,11 +49,12 @@ class LinkedList(MutableSequence):
         if index == 0:
             self.__head = self.__head.next
         else:
-            prev = self.__get(index)
+            prev = self.__get(index - 1)
             if index == self.__len - 1:
                 prev.next = None
             else:
                 prev.next = prev.next.next
+        self.__len -= 1
     
     def insert(self, value):
         self.__head = LinkedNode(value, self.__head)
@@ -69,12 +70,16 @@ class LinkedList(MutableSequence):
         
         return next_node
 
+
+### Example usage
 test_list = LinkedList()
 
 for i in range(10):
     test_list.insert(i)
 
 print(test_list[0])
+
+del test_list[2]
 
 for x in test_list:
     print(x)
