@@ -35,7 +35,7 @@ class LinkedList(MutableSequence):
         pass
     
     def insert(self, value):
-        pass
+        self.__head = LinkedNode(value, self.__head)
 
 test_list = LinkedList()
 
