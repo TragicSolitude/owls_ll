@@ -1,3 +1,11 @@
+# ================================================================= #
+# CS354 - Language Website Complex Assignment                       #
+# Python Linked List                                                #
+# Team Owls
+#   |   Jaime Guevara, Rhett Hancock, Nuah Shuart, Callum Young     #
+#
+# ================================================================= #
+
 from collections.abc import MutableSequence
 
 # Error classes
@@ -43,7 +51,7 @@ class LinkedList(MutableSequence):
         return self.__get(index).value
     
     def __setitem__(self, index, value):
-        pass
+        self.__get(index).value = value
 
     def __delitem__(self, index):
         if index == 0:
