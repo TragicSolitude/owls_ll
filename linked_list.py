@@ -1,9 +1,9 @@
 # ================================================================= #
 # CS354 - Language Website Complex Assignment                       #
 # Python Linked List                                                #
-# Team Owls
+# Team Owls                                                         #
 #   |   Jaime Guevara, Rhett Hancock, Nuah Shuart, Callum Young     #
-#
+#                                                                   #
 # ================================================================= #
 
 from collections.abc import MutableSequence
