@@ -47,21 +47,25 @@ class LinkedList(MutableSequence):
 
     def __delitem__(self, index):
         if index == 0:
-            self.head = self.head.next
+            self.__head = self.__head.next
         else:
             prev = self.__get(index)
-            prev
+            if index == self.__len - 1:
+                prev.next = None
+            else:
+                prev.next = prev.next.next
     
     def insert(self, value):
         self.__head = LinkedNode(value, self.__head)
+        self.__len += 1
 
     def __get(self, index):
-        if index >= self.len:
+        if index >= self.__len:
             raise IndexOutOfBoundsException()
         
-        next_node = self.head
+        next_node = self.__head
         for _ in range(index):
-            next_node = next_node.next()
+            next_node = next_node.next
         
         return next_node
 
